@@ -357,10 +357,10 @@ tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
 	xxd -r data12-13.txt > tempFile
 
 	# while (file != ASCII)
-		file tempFile
-		tempFile: <*zip*>  # Extensions: gz, bzip, tar
-		mv tempFile to tempFile.<*zip-Extension*>
-		gunzip / bzip2 -d / tar xvf  tempFile.<*zip-Extension*>
+		# file tempFile
+		# tempFile: <*zip*>  # Extensions: gz, bzip, tar
+		# mv tempFile to tempFile.<*zip-Extension*>
+		# gunzip / bzip2 -d / tar xvf  tempFile.<*zip-Extension*>
 
 	# Write password to file --phew!
 	cat data8 | cut -d ' ' -f 4 > p13.txt
