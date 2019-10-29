@@ -2,7 +2,7 @@ Bandit --Steps to Get Through Levels
 ###########################
 :Author: David Boyd
 :Date: Mon Oct 28 15:27:37 CDT 2019
-:Bandit: http://overthewire.org/wargames/bandit/
+:Bandit: `Bandit <http://overthewire.org/wargames/bandit/>`_
 
 
 Level 0
