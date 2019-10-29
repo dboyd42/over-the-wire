@@ -217,7 +217,7 @@ tr, tar, gzip, bzip2, xxd
 	sshpass -f p7.txt scp -P 2220 bandit7@bandit.labs.overthewire.org:~/data.txt ./data7-8.txt
 
 	# Grep "millionth" and 'cut' the second column
-	grep "millionth" b7-8data.txt | cut -f 2 > p8.txt
+	grep "millionth" data7-8d.txt | cut -f 2 > p8.txt
 
 Bandit8: p8.txt
 
@@ -236,10 +236,10 @@ tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
 
-	sshpass -f p8.txt scp -P 2220 bandit8@bandit.labs.overthewire.org:~/data.txt ./data8-7.txt
+	sshpass -f p8.txt scp -P 2220 bandit8@bandit.labs.overthewire.org:~/data.txt ./data8-9.txt
 
 	# Sort then print only unique lines
-	sort data8-8.txt | uniq -u > p9.txt
+	sort data8-9.txt | uniq -u > p9.txt
 
 Bandit9: p9.txt
 
@@ -269,7 +269,7 @@ tr, tar, gzip, bzip2, xxd
 	sshpass -f p9.txt scp -P 2220 bandit9@bandit.labs.overthewire.org:~/data.txt ./data9-10.txt
 
 	# Display password position
-	strings b9-10data.txt | grep ====
+	strings data9-10.txt | grep ====
 
 	# Extract password and write to file
 	strings data9-10.txt | grep ==== | cut -d ' ' -f 2 | tail -n 1 > p10.txt
@@ -293,7 +293,7 @@ tr, tar, gzip, bzip2, xxd
 	sshpass -f p10.txt scp -P 2220 bandit10@bandit.labs.overthewire.org:~/data.txt ./data10-11.txt
 
 	# Decode the base64 text and display password position
-	base64 b10-11data.txt --decode
+	base64 --decode data10-11.txt
 
 	# Extract password and write to file
 	base64 --decode data10-11.txt | cut -d ' ' -f 4 > p11.txt
