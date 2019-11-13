@@ -23,14 +23,13 @@ Commands you may need to solve this level: ssh
 	sshpass -p bandit0 ssh bandit0@bandit.labs.overthewire.org -p 2220
 	bandit0@bandit:~$ cat readme
 
-	# OR: copy files to local machine
-	sshpass -p bandit0 scp -P 2220 bandit0@bandit.labs.overthewire.org:~/readme ./p2.txt
+	# OR copy files to local machine
+	sshpass -p bandit0 scp -P 2220 bandit0@bandit.labs.overthewire.org:~/readme ./passwords/p2.txt
 
-Bandit1: p2.txt
+Bandit1: passwords/p2.txt
 
 Level 0-1
 =========
-:Hint: ./-
 
 Level Goal
 ----------
@@ -44,7 +43,7 @@ Commands you may need to solve this level: ls, cd, cat, file, du, find
 
 .. code-block :: Bash
 
-	sshpass -f p1.txt ssh -p 2220 bandit1@bandit.labs.overthewire.org
+	sshpass -f passwords/p1.txt ssh -p 2220 bandit1@bandit.labs.overthewire.org
 
 
 Level 1-2
@@ -62,13 +61,13 @@ Commands you may need to solve this level: ls, cd, cat, file, du, find
 
 .. code-block :: Bash
 
-	sshpass -f p1.txt scp -P 2220 bandit1@bandit.labs.overthewire.org:~/- ./p2.txt
+	sshpass -f passwords/p1.txt scp -P 2220 bandit1@bandit.labs.overthewire.org:~/datafiles/- ./passwords/p2.txt
 
-Bandit3: p3.txt
+Bandit3: passwords/p3.txt
 
 Level 2-3
 =========
-:Note: If p2.txt was not previously declared, use './-'
+:Note: If passwords/p2.txt was not previously declared, use './-'
 
 Level Goal
 ----------
@@ -80,21 +79,21 @@ Commands you may need to solve this level: ls, cd, cat, file, du, find
 
 .. code-block :: Bash
 
-	sshpass -f ./p2.txt scp -P 2220 bandit2@bandit.labs.overthewire.org:~/spaces* ./p3.txt
+	sshpass -f ./passwords/p2.txt scp -P 2220 bandit2@bandit.labs.overthewire.org:~/spaces* ./passwords/p3.txt
 
-	# OR: exact filename
-	sshpass -f ./p2.txt scp -P 2220 bandit2@bandit.labs.overthewire.org:~/"spaces\ in\ this\ filename" ./p3.txt
+	# OR if you copied the exact filename
+	sshpass -f ./passwords/p2.txt scp -P 2220 bandit2@bandit.labs.overthewire.org:~/"spaces\ in\ this\ filename" ./passwords/p3.txt
 
-Bandit3: p3.txt
+Bandit3: passwords/p3.txt
 
 Level 3-4
 =========
-:Note: adding a . at the end no longer works (2019) due to security issues
+:Note: adding a '.' at the end no longer works (2019) due to security issues
 
 Level Goal
 ----------
 :Hint: When copying a directory, you should use the -r option
-:Solution: copy the entire directory
+:Solution: copy the entire directory to search locally
 
 The password for the next level is stored in a hidden file in the inhere
 directory.
@@ -103,12 +102,16 @@ Commands you may need to solve this level: ls, cd, cat, file, du, find
 
 .. code-block :: Bash
 
+	# Copy remote directory to local machine
 	sshpass -f p3.txt scp -r -P 2220 bandit3@bandit.labs.overthewire.org:~/inhere/ ./
 
 	# Move the password file to the preferred directory and filename
-	mv inhere/.hidden p4.txt
+	mv inhere/.hidden passwords/p4.txt
 
-Bandit4: p4.txt
+	# Delete local directory
+	rm -rf inhere/
+
+Bandit4: passwords/p4.txt
 
 Level 4-5
 =========
@@ -120,20 +123,26 @@ The password for the next level is stored in the only human-readable file in
 the inhere directory. Tip: if your terminal is messed up, try the “reset”
 command.
 
-Commands you may need to solve this level: ls, cd, cat, file, du, find
+Commands you may need to solve this level: ls, cd, cat, **file**, du, find
+
+**file** determines the filetype and displays the output.
+
 
 .. code-block :: Bash
 
 	# Copy files to local directory
-	sshpass -f p4.txt scp -r -P 2220 bandit4@bandit.labs.overthewire.org:~/inhere/ ./
+	sshpass -f passwords/p4.txt scp -r -P 2220 bandit4@bandit.labs.overthewire.org:~/inhere/ ./
 
 	# Find human readable file by ascii type
 	file inhere/* | grep ASCII
 
 	# Copy file contents into new file
-	cp inhere/-file07 p5.txt
+	cp inhere/-file07 passwords/p5.txt
 
-Bandit5: p5.txt
+	# Delete local directory
+	rm -rf inhere/
+
+Bandit5: passwords/p5.txt
 
 Level 5-6
 =========
@@ -148,22 +157,24 @@ directory and has all of the following properties:
 	- 1033 bytes in size
 	- not executable
 
-Commands you may need to solve this level: ls, cd, cat, file, du, find
+Commands you may need to solve this level: ls, cd, cat, file, du, **find**
+
+**find** searches for files.  Note: when searching for names, you optios -iname
 
 .. code-block :: Bash
 
 	# SSH into the remote server as bandit5 to avoid copying an entire dir
-	sshpass -f p5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org
+	sshpass -f passwords/p5.txt ssh -p 2220 bandit5@bandit.labs.overthewire.org
 
 	# Find the file
-	find -readable -size 1033c ! -executable
+	find -readable -size 1033c ! -executable	# inhere/maybehere07/.file2
 
 	exit
 
 	# Copy the file to the local machine
-	sshpass -f p5.txt scp -P 2220 bandit5@bandit.labs.overthewire.org:~/inhere/maybehere07/.file2 ./p6.txt
+	sshpass -f passwords/p5.txt scp -P 2220 bandit5@bandit.labs.overthewire.org:~/inhere/maybehere07/.file2 ./passwords/p6.txt
 
-Bandit6: p6.txt
+Bandit6: passwords/p6.txt
 
 Level 6-7
 =========
@@ -178,12 +189,14 @@ of the following properties:
 	- owned by group bandit6
 	- 33 bytes in size
 
-Commands you may need to solve this level: ls, cd, cat, file, du, find, grep
+Commands you may need to solve this level: ls, cd, cat, file, du, **find**, grep
+
+**find** can also search gro groups and sizes.
 
 .. code-block :: Bash
 
 	# SSH into Bandit6 to avoid copying an entire file system
-	sshpass -f p6.txt ssh -p 2220 bandit6@bandit.labs.overthewire.org
+	sshpass -f passwords/p6.txt ssh -p 2220 bandit6@bandit.labs.overthewire.org
 
 	# Jump to the root directory
 	cd /
@@ -194,9 +207,9 @@ Commands you may need to solve this level: ls, cd, cat, file, du, find, grep
 	exit
 
 	# Copy file to local machine
-	sshpass -f p6.txt scp -P 2220 bandit6@bandit.labs.overthewire.org:/var/lib/dpkg/info/bandit7.password ./p7.txt
+	sshpass -f p6.txt scp -P 2220 bandit6@bandit.labs.overthewire.org:/var/lib/dpkg/info/bandit7.password ./passwords/p7.txt
 
-Bandit7: p7.txt
+Bandit7: passwords/p7.txt
 
 
 Level 7-8
@@ -214,12 +227,12 @@ tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
 
-	sshpass -f p7.txt scp -P 2220 bandit7@bandit.labs.overthewire.org:~/data.txt ./data7-8.txt
+	sshpass -f passwords/p7.txt scp -P 2220 bandit7@bandit.labs.overthewire.org:~/data.txt ./datafiles/data7-8.txt
 
 	# Grep "millionth" and 'cut' the second column
-	grep "millionth" data7-8d.txt | cut -f 2 > p8.txt
+	grep "millionth" datafiles/data7-8d.txt | cut -f 2 > passwords/p8.txt
 
-Bandit8: p8.txt
+Bandit8: passwords/p8.txt
 
 Level 8-9
 =========
