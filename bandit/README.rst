@@ -191,7 +191,7 @@ of the following properties:
 
 Commands you may need to solve this level: ls, cd, cat, file, du, **find**, grep
 
-**find** can also search gro groups and sizes.
+**find** can also search for groups and sizes.
 
 .. code-block :: Bash
 
@@ -249,12 +249,12 @@ tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
 
-	sshpass -f p8.txt scp -P 2220 bandit8@bandit.labs.overthewire.org:~/data.txt ./data8-9.txt
+	sshpass -f passwords/p8.txt scp -P 2220 bandit8@bandit.labs.overthewire.org:~/data.txt ./datafiles/data8-9.txt
 
 	# Sort then print only unique lines
-	sort data8-9.txt | uniq -u > p9.txt
+	sort datafiles/data8-9.txt | uniq -u > passwords/p9.txt
 
-Bandit9: p9.txt
+Bandit9: passwords/p9.txt
 
 Level 9-10
 ==========
@@ -279,15 +279,15 @@ tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
 
-	sshpass -f p9.txt scp -P 2220 bandit9@bandit.labs.overthewire.org:~/data.txt ./data9-10.txt
+	sshpass -f passwords/p9.txt scp -P 2220 bandit9@bandit.labs.overthewire.org:~/data.txt ./datafiles/data9-10.txt
 
 	# Display password position
-	strings data9-10.txt | grep ====
+	strings datafiles/data9-10.txt | grep ====
 
-	# Extract password and write to file
-	strings data9-10.txt | grep ==== | cut -d ' ' -f 2 | tail -n 1 > p10.txt
+	# Extract password position and write to file
+	strings datafiles/data9-10.txt | grep ==== | cut -d ' ' -f 2 | tail -n 1 > passwords/p10.txt
 
-Bandit10: p10.txt
+Bandit10: passwords/p10.txt
 
 Level 10-11
 ===========
@@ -303,13 +303,13 @@ tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
 
-	sshpass -f p10.txt scp -P 2220 bandit10@bandit.labs.overthewire.org:~/data.txt ./data10-11.txt
+	sshpass -f passwords/p10.txt scp -P 2220 bandit10@bandit.labs.overthewire.org:~/data.txt ./datafiles/data10-11.txt
 
 	# Decode the base64 text and display password position
-	base64 --decode data10-11.txt
+	base64 --decode datafiles/data10-11.txt
 
 	# Extract password and write to file
-	base64 --decode data10-11.txt | cut -d ' ' -f 4 > p11.txt
+	base64 --decode datafiles/data10-11.txt | cut -d ' ' -f 4 > passwords/p11.txt
 
 Bandit11: p11.txt
 
@@ -323,16 +323,21 @@ The password for the next level is stored in the file data.txt, where all
 lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
 
 Commands you may need to solve this level: grep, sort, uniq, strings, base64,
-tr, tar, gzip, bzip2, xxd
+**tr**, tar, gzip, bzip2, xxd
+
+**tr[anslate]** - translates or deletes characters.  The use with the ROT13 is
+depicted by the first set transitioning into the second set.  The sets
+themselves contain the lowercase alphabet followed by the uppercase alphabet.
+Otherwise, you might find that 'A' doesn't follow 'z'!
 
 .. code-block :: Bash
 
-	sshpass -f p11.txt scp -P 2220 bandit11@bandit.labs.overthewire.org:~/data.txt ./data11-12.txt
+	sshpass -f passwords/p11.txt scp -P 2220 bandit11@bandit.labs.overthewire.org:~/data.txt ./datafiles/data11-12.txt
 
 	# Rot13 using 'tr'anslate and write to file
-	cat data11-12.txt | tr 'a-zA-Z' 'n-za-mN-ZA-M' | cut -d ' ' -f 4 > p12.txt
+	cat datafiles/data11-12.txt | tr 'a-zA-Z' 'n-za-mN-ZA-M' | cut -d ' ' -f 4 > passwords/p12.txt
 
-Bandit12: p12.txt
+Bandit12: passwords/p12.txt
 
 Level 12-13
 ===========
@@ -360,14 +365,18 @@ For example: mkdir /tmp/myname123. Then copy the datafile using cp, and rename
 it using mv (read the manpages!)
 
 Commands you may need to solve this level: grep, sort, uniq, strings, base64,
-tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
+tr, **tar**, **gzip**, **bzip2**, **xxd**, mkdir, cp, mv, file
+
+**xxd** - make a hexdump or do the reverse.
+
+**tar**, **gzip**, **bzip2** are used for de/compression files.
 
 .. code-block :: Bash
 
-	sshpass -f p12.txt scp -P 2220 bandit12@bandit.labs.overthewire.org:~/data.txt ./data12-13.txt
+	sshpass -f passwords/p12.txt scp -P 2220 bandit12@bandit.labs.overthewire.org:~/data.txt ./datafiles/data12-13.txt
 
 	# Reverse the hexdump
-	xxd -r data12-13.txt > tempFile
+	xxd -r datafiles/data12-13.txt > tempFile
 
 	# while (file != ASCII)
 		# file tempFile
@@ -376,11 +385,11 @@ tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
 		# gunzip / bzip2 -d / tar xvf  tempFile.<*zip-Extension*>
 
 	# Write password to file --phew!
-	cat data8 | cut -d ' ' -f 4 > p13.txt
+	cat datafiles/data8 | cut -d ' ' -f 4 > passwords/p13.txt
 
 The goal is to uncompress the filetype until there are no more compressions.
 
-Bandit13: p13.txt
+Bandit13: passwords/p13.txt
 
 Level 13-14
 ===========
