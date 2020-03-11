@@ -3,10 +3,11 @@ Bandit --Steps to Get Through Levels
 :Author: David Boyd
 :Date: Mon Oct 28
 :Bandit: `Bandit <http://overthewire.org/wargames/bandit/>`_
-
+:Note: Users are bandit1, bandit11, etc
 
 Level 0
 =======
+:bandit0:bandit0
 
 Level Goal
 ----------
@@ -30,6 +31,7 @@ Bandit1: passwords/p2.txt
 
 Level 0-1
 =========
+:bandit1:boJ9jbbUNNfktd78OOpsqOltutMc3MY1
 
 Level Goal
 ----------
@@ -169,6 +171,10 @@ Commands you may need to solve this level: ls, cd, cat, file, du, **find**
 	# Find the file
 	find -readable -size 1033c ! -executable	# inhere/maybehere07/.file2
 
+	# Find and Cat (alternative)
+	find ./ -readable -size 1033c ! -executable -exec cat {} +
+	find ./ -readable -size 1033c ! -executable -exec cat -n {} \;
+
 	exit
 
 	# Copy the file to the local machine
@@ -198,6 +204,9 @@ Commands you may need to solve this level: ls, cd, cat, file, du, **find**, grep
 	# SSH into Bandit6 to avoid copying an entire file system
 	sshpass -f passwords/p6.txt ssh -p 2220 bandit6@bandit.labs.overthewire.org
 
+	# Quick and Easy find
+	find / -user bandit7 -group bandit6 -size 33c -exec cat {} + 2>/dev/null
+
 	# Jump to the root directory
 	cd /
 
@@ -215,6 +224,7 @@ Bandit7: passwords/p7.txt
 Level 7-8
 =========
 :Tip: Use 'cut' to select a --field from grep
+:Note: cut's default delimeter is TAB
 
 Level Goal
 ----------
@@ -236,6 +246,7 @@ Bandit8: passwords/p8.txt
 
 Level 8-9
 =========
+:Note: sort -u -> deletes copy; uniq -u -> deletes ALL duplicate lines
 
 Level Goal
 ----------
@@ -248,6 +259,9 @@ tr, tar, gzip, bzip2, xxd
 
 
 .. code-block :: Bash
+
+	# Quick and Easy
+	cat data.txt | sort | uniq -u
 
 	sshpass -f passwords/p8.txt scp -P 2220 bandit8@bandit.labs.overthewire.org:~/data.txt ./datafiles/data8-9.txt
 
@@ -279,6 +293,9 @@ tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
 
+	# Quick and Easy
+	grep === data.txt
+
 	sshpass -f passwords/p9.txt scp -P 2220 bandit9@bandit.labs.overthewire.org:~/data.txt ./datafiles/data9-10.txt
 
 	# Display password position
@@ -302,6 +319,9 @@ Commands you may need to solve this level: grep, sort, uniq, strings, base64,
 tr, tar, gzip, bzip2, xxd
 
 .. code-block :: Bash
+
+	# Quick and Easy
+	base64 --decode data.txt
 
 	sshpass -f passwords/p10.txt scp -P 2220 bandit10@bandit.labs.overthewire.org:~/data.txt ./datafiles/data10-11.txt
 
@@ -331,6 +351,9 @@ themselves contain the lowercase alphabet followed by the uppercase alphabet.
 Otherwise, you might find that 'A' doesn't follow 'z'!
 
 .. code-block :: Bash
+
+	# Quick and Easy
+	cat data.txt | tr 'a-zA-Z' 'n-za-mN-ZA-m'
 
 	sshpass -f passwords/p11.txt scp -P 2220 bandit11@bandit.labs.overthewire.org:~/data.txt ./datafiles/data11-12.txt
 

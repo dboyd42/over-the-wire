@@ -1,0 +1,9 @@
+Script started on 2020-03-10 14:18:51-05:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="53" LINES="31"]
+]0;bhat@beijing: ~/Documents/code/repos/github/dboyd42/over-the-wire/bandit/passwords[01;31mbhat@beijing[00m:[01;34m~/Documents/code/repos/github/dboyd42/over-the-wire/bandit/passwords[00m$ 91+13
+bash: 91+13: command not found
+]0;bhat@beijing: ~/Documents/code/repos/github/dboyd42/over-the-wire/bandit/passwords[01;31mbhat@beijing[00m:[01;34m~/Documents/code/repos/github/dboyd42/over-the-wire/bandit/passwords[00m$ bc <<< "91+13"
+104
+]0;bhat@beijing: ~/Documents/code/repos/github/dboyd42/over-the-wire/bandit/passwords[01;31mbhat@beijing[00m:[01;34m~/Documents/code/repos/github/dboyd42/over-the-wire/bandit/passwords[00m$ exit
+exit
+
+Script done on 2020-03-10 14:19:09-05:00 [COMMAND_EXIT_CODE="0"]
