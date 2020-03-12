@@ -396,19 +396,11 @@ tr, **tar**, **gzip**, **bzip2**, **xxd**, mkdir, cp, mv, file
 
 .. code-block :: Bash
 
+	# Login and scp the file
 	sshpass -f passwords/p12.txt scp -P 2220 bandit12@bandit.labs.overthewire.org:~/data.txt ./datafiles/data12-13.txt
 
-	# Reverse the hexdump
-	xxd -r datafiles/data12-13.txt > tempFile
-
-	# while (file != ASCII)
-		# file tempFile
-		# tempFile: <*zip*>  # Extensions: gz, bzip, tar
-		# mv tempFile to tempFile.<*zip-Extension*>
-		# gunzip / bzip2 -d / tar xvf  tempFile.<*zip-Extension*>
-
-	# Write password to file --phew!
-	cat datafiles/data8 | cut -d ' ' -f 4 > passwords/p13.txt
+	# run ./bandit12-uncompressing.sh data.txt
+	./bandit12-uncompressing.sh data.txt
 
 The goal is to uncompress the filetype until there are no more compressions.
 
