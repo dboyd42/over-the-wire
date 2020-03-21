@@ -1,5 +1,5 @@
 bandit8-9
-#######
+#########
 :Author: David Boyd
 :Date: 2020-03-20
 
@@ -11,9 +11,10 @@ Commands you may need to solve this level
 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-
 Walkthrough
 ===========
+:sort: -u = deletes copy
+:uniq: -u = deletes ALL duplicate lines
 
 .. code-block :: Bash
 

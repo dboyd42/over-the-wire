@@ -12,9 +12,14 @@ Commands you may need to solve this level
 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-
 Walkthrough
 ===========
+
+tr[anslate]
+	translates or deletes characters.  The use with the ROT13 is
+depicted by the first set transitioning into the second set.  The sets
+themselves contain the lowercase alphabet followed by the uppercase alphabet.
+Otherwise, you might find that 'A' doesn't follow 'z'!
 
 .. code-block :: Bash
 

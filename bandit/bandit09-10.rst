@@ -12,9 +12,9 @@ Commands you may need to solve this level
 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
-
 Walkthrough
 ===========
+:strings: find all the human-readable strings within a file
 
 .. code-block :: Bash
 

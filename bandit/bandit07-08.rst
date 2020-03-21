@@ -1,8 +1,7 @@
 bandit7-8
-#######
+#########
 :Author: David Boyd
 :Date: 2020-03-20
-
 
 Level Goal
 ==========
@@ -15,6 +14,7 @@ grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd
 
 Walkthrough
 ===========
+:Note: cut's default delimeter is TAB
 
 .. code-block :: Bash
 

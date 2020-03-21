@@ -14,6 +14,7 @@ The password for the next level is stored in a file somewhere under the inhere d
 
 Walkthrough
 ===========
+:find: searches for files
 
 .. code-block :: Bash
 

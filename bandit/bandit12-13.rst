@@ -12,9 +12,23 @@ Commands you may need to solve this level
 
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd, mkdir, cp, mv, file
 
-
 Walkthrough
 ===========
+:Note: You have file editing privileges in mkdir /tmp/<some-dir>/
+:xxd: make a hexdump or do the reverse
+:tar, gzip, bzip2: used for de/compression files
+
++-----+---------------------------------------------+
+| tar | Description                                 |
++=====+=============================================+
+| z   | means (un)z̲ip.                              |
++-----+---------------------------------------------+
+| x   | means ex̲tract files from the archive.       |
++-----+---------------------------------------------+
+| v   | means print the filenames v̲erbosely.        |
++-----+---------------------------------------------+
+| f   | means the following argument is a f̱ilename. |
++-----+---------------------------------------------+
 
 .. code-block :: Bash
 

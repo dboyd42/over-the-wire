@@ -3,7 +3,6 @@ bandit2-3
 :Author: David Boyd
 :Date: 2020-03-20
 
-
 Level Goal
 ==========
 

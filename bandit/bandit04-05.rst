@@ -1,8 +1,7 @@
-bandit4
-#######
+bandit4-5
+#########
 :Author: David Boyd
 :Date: 2020-03-20
-
 
 Level Goal
 ==========
@@ -14,6 +13,7 @@ ls, cd, cat, file, du, find
 
 Walkthrough
 ===========
+:file: determines the filetype and displays the output.
 
 .. code-block :: Bash
 
