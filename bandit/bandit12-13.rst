@@ -51,7 +51,7 @@ Walkthrough
 	xxd -r data.txt temp
 
 	###
-	# Loop
+	# Loop until File == POSIX
 	###
 		# Determine file
 		file temp
@@ -61,10 +61,13 @@ Walkthrough
 		gunzip t.gz
 
 		# Else If bzip2
-		bunzip t					## newfile t.out
+		bzip2 -d t				## newfile t.out
 
-		# Else If POSIX
-		tar -xvf t					## newfile data5.bin (POSIX file)
-		tar -xvf data5.bin			## newfile data6.bin (POSIX file)
-		tar -xvf data6.bin			## newfile data8.bin (gzip file)
-
+	# If POSIX
+	tar -xvf t				## newfile data5.bin (POSIX file)
+	tar -xvf data5.bin			## newfile data6.bin (POSIX file)
+	tar -xvf data6.bin			## newfile data8.bin (gzip file)
+	
+	# Final
+	mv data8.bin t.gz
+	gunzip t.gz
