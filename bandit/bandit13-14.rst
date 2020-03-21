@@ -14,9 +14,7 @@ Walkthrough
 .. code-block :: Bash
 
 	# Login to server
-	ssh bandit13@bandit.overthewire.org -p 2220
-		passwd: <C-b>]      # If using tmux
-		passwd: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+	sshpass 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL ssh bandit13@bandit.overthewire.org -p 2220
 
 	# Capture the Flag
 
