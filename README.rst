@@ -40,6 +40,8 @@ General Notes
 sshpass, scp
 ============
 
+.. code-block :: Bash
+
 	# SSH using a password from CLI
 	sshpass -p <passwd> ssh <user>@<host> -p <port#>
 
