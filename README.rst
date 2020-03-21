@@ -33,3 +33,22 @@ This repo hold the documentation for proceeding through Over the Wire's challeng
 +-----------+----------+---------+
 | Drifter   |          |         |
 +-----------+----------+---------+
+
+General Notes
+#############
+
+sshpass, scp
+============
+
+	# SSH using a password from CLI
+	sshpass -p <passwd> ssh <user>@<host> -p <port#>
+
+	# SSH using a password from CLI
+	sshpass -f <filename> ssh <user>@<host> -p <port#>
+
+	# Copy files to local machine from SSH
+	scp -P <port#> <user>@<host>:~/path/to/file <./local/path/to/local/file>
+
+	# sshpass and scp one liner (example)
+	sshpass -f p3.txt scp -r -P 2220 bandit3@bandit.labs.overthewire.org:~/inhere/ ./p4.txt
+
