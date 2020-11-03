@@ -21,8 +21,12 @@ Walkthrough
 
 	# Login to server
 	sshpass 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL ssh bandit13@bandit.overthewire.org -p 2220
+	# Find flag
+	ls; exit
+
+	# Copy the flag from RHOST to LHOST
+	scp -P 2220 bandit13@bandit.labs.overthewire.org:./sshkey.private ./
 
 	# Capture the Flag
-	ls
 	ssh bandit14@localhost -i sshkey.private
 

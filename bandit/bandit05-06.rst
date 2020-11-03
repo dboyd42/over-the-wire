@@ -6,7 +6,8 @@ bandit5-6
 Level Goal
 ==========
 
-The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+The password for the next level is stored in a file somewhere under the
+inhere directory and has all of the following properties:
 
 	- human-readable
 	- 1033 bytes in size
@@ -23,8 +24,11 @@ Walkthrough
 		passwd: <C-b>]      # If using tmux
 		passwd: koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 
-	# Capture the Flag
+	# Capture the Flag (Method 1)
 	find -readable -size 1033c ! -executable -exec cat {} +
+	# Capture the Flag (Method n)
+	find ./inhere/* -size 1033c ! -perm 111 | xargs -L1 file -h
+	find ./inhere/* -size 1033c ! -perm 111 -readabale -exec {} +
 
 	# Tmux copy to system clipboard
 	<C-b>]		# Enter vi mode
