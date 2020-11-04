@@ -15,6 +15,9 @@ Walkthrough
 
 .. code-block :: Bash
 
+	# Vars
+	TM="bandit.labs.overthewire.org -p 2220"
+
 	# Login to server
 	sshpass -p IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x ssh bandit19@$TM
 
