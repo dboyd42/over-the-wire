@@ -7,11 +7,11 @@ Overview
 :Ctrl+C: Sends SIGINT, signal 2, to the process—if it is accepting input—and tells it to terminate.
 :Ctrl+D: Sends SISQUIT, signal 3, to the process—if it is accepting input—and tells it to quit.
 :Ctrl+Z: Sends SIGSTP, signal 20, to the process and tells it to stop (suspend) and become a background process.
-:jobs  : Lists the background jobs and shows their job number.
+:jobs: Lists the background jobs and shows their job number.
 :bg job_number: Restarts a background process. If you don’t provide a job number the last process that was turned into a background task is used.
 :fg job_number: brings a background process into the foreground and restarts it. If you don’t provide a job number the last process that was turned into a background task is used.
 :commandline &: Adding an ampersand & to the end of a command line executes that command as a background task, that is running.
-:kill %job_number  : Sends SIGTERM, signal 15, to the process to terminate it.
+:kill %job_number: Sends SIGTERM, signal 15, to the process to terminate it.
 :kill 9 %job_number: Sends SIGKILL, signal 9, to the process and terminates it abruptly.
 
 To put current process into background:
