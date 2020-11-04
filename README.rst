@@ -9,7 +9,7 @@ This repo hold the documentation for proceeding through Over the Wire's challeng
 +-----------+----------+------------+--------------+
 | Games     | Progress | Start Date | Current Date |
 +===========+==========+============+==============+
-| Bandit    | 20 / 34  | 2019/10    |              |
+| Bandit    | 20 / 34  | 2019/10    | 2020-11-03   |
 +-----------+----------+------------+--------------+
 | Leviathan |          |            |              |
 +-----------+----------+------------+--------------+
