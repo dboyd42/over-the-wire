@@ -81,15 +81,15 @@ You can also do it "backwards".
 
 	# Set up the listener in the bg
 	nc -l localhost -p 4444 &
-	> [1] 17523
+		> [1] 17523
 
 	# Run the SUID prgm in the bg
 	./suconnect 4444 &
-	> [2] 17584
+		> [2] 17584
 
 	# Bring the listener (job #1) to the foreground
 	fg 1
-	> nc -l localhost -p 4444
+		> nc -l localhost -p 4444
 
 	# Enter Bandit19's password
 	GbKksEFF4yrVs6il55v6gwY5aVje5f0j
