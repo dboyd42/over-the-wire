@@ -9,7 +9,7 @@ This repo hold the documentation for proceeding through Over the Wire's challeng
 +-----------+----------+---------+
 | Games     | Progress | Date    |
 +===========+==========+=========+
-| Bandit    | 12 / 34  | 2019/10 |
+| Bandit    | 19 / 34  | 2019/10 |
 +-----------+----------+---------+
 | Leviathan |          |         |
 +-----------+----------+---------+
@@ -52,5 +52,5 @@ sshpass, scp
 	scp -P <port#> <user>@<host>:~/path/to/file <./local/path/to/local/file>
 
 	# sshpass and scp one liner (example)
-	sshpass -f p3.txt scp -r -P 2220 bandit3@bandit.labs.overthewire.org:~/inhere/ ./p4.txt
+	sshpass -f p3.txt scp -r -P 2220 bandit3@bandit.labs.overthewire.org:~/inhere/p4.txt ./p4.txt
 
