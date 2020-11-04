@@ -20,7 +20,7 @@ To put current process into background:
 .. code-block:: Bash
 
 	# Stop the current process
-	<C-z?
+	<C-z>
 	# Put in background
 	bg <#>		// or bg <empty> will place default (+) prc into bg
 
@@ -69,7 +69,7 @@ Walkthrough
 	./suconnect 1234
 		> Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 		> Password matches, sending next password
-	gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+		> gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
 Alternative Walkthrough
 =======================
