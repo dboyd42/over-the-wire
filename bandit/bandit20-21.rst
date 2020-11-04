@@ -93,8 +93,8 @@ You can also do it "backwards".
 
 	# Enter Bandit19's password
 	GbKksEFF4yrVs6il55v6gwY5aVje5f0j
-	> Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
-	> Password matches, sending next password
-	>  gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
-	>[2]+  Done                    ./suconnect 4444
+		> Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+		> Password matches, sending next password
+		>  gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+		>[2]+  Done                    ./suconnect 4444
 
