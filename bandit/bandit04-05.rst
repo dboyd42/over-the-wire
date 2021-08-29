@@ -24,7 +24,7 @@ Walkthrough
 		passwd: pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 
 	# Capture the Flag
-	file inhere/* -h
+	file inhere/*
 	cat ./inhere/-file07
 
 	# Tmux copy to system clipboard
