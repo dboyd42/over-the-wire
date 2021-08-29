@@ -25,6 +25,8 @@ Walkthrough
 
 	# Get bandit2 passwd
 	cat ./-
+	cat ./*
+	cat "./-"
 
 	# Tmux copy to system clipboard
 	<C-b>]		# Enter vi mode
