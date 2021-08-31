@@ -16,6 +16,7 @@ inhere directory and has all of the following properties:
 Walkthrough
 ===========
 :find: searches for files
+:note: practically all files are human-readable
 
 .. code-block :: Bash
 
