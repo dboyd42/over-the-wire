@@ -23,6 +23,7 @@ Walkthrough
 :xxd: make a hexdump or do the reverse
 :tar, gzip, bzip2: used for de/compression files
 :Note: gunzip REQUIRES the filename's suffix (extension) to be '.gz'
+:Update: bypass gunzip suffix requirement: -S <ext>
 
 +-----+---------------------------------------------+
 | tar | Description                                 |
