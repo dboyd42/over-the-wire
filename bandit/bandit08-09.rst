@@ -21,9 +21,13 @@ Walkthrough
 
 	# Login to server
 	ssh bandit8@bandit.overthewire.org -p 2220
-		passwd: <C-b>]      # If using tmux
+		passwd: <C-b>]	  # If using tmux
 		passwd: cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 
-	# Capture the Flag
+	# Capture the Flag (Method 1)
 	sort -u data.txt | uniq -u
+	# Capture the Flag (Method 2)
+	sort data.txt | uniq -u
+	# Capture the Flag (Method 3)
+	cat data.txt | sort | uniq -u
 

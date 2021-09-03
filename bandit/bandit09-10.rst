@@ -25,5 +25,5 @@ Walkthrough
 		passwd: UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 
 	# Capture the Flag
-	strings data.txt | grep ===
+	strings data.txt | grep === | cut -d ' ' -f2
 

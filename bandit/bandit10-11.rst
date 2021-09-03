@@ -25,4 +25,5 @@ Walkthrough
 
 	# Capture the Flag
 	base64 --decode data.txt
+    base54 -d data.txt | cut -d ' ' -f4
 
