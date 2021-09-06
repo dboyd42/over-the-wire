@@ -18,8 +18,8 @@ ssh, telnet, nc, openssl, s_client, nmap
 
 Walkthrough
 ===========
-:ssh -i: IdentityFile - Specifies the file from which the user's RSA
-authentication identity is read
+:ssh -i: IdentityFile - Specifies the file from which the user's RSA authentication identity is read
+:scp wildcard: Use the escape char to read in the asterisk.
 
 .. code-block :: Bash
 
@@ -29,7 +29,11 @@ authentication identity is read
 	ls; exit
 
 	# Copy the flag from RHOST to LHOST
+	# Method 1
 	scp -P 2220 bandit13@bandit.labs.overthewire.org:./sshkey.private ./
+	# Method 2
+	scp -P 2220 bandit$i@bandit.labs.overthewire.org:/home/bandit1
+	3/\* ./
 
 	# [ISSUE] ssh's "WARNING: UNPROTECTED PRIVATE KEY FILE!"
 	#   [FIX] reset key to perm defaults
