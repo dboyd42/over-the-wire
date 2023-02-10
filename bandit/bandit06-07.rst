@@ -29,6 +29,8 @@ Walkthrough
 		passwd: DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 
 	# Capture the Flag
+    find / -type f -user bandit7 -group bandit6 -size 33c -execdir cat {} + 2>/dev/null
+    # Alternative code
 	find /* -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} +
 	# location: /var/lib/dpkg/info/bandit7.password
 

@@ -26,8 +26,10 @@ Walkthrough
 		passwd: koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 
 	# Capture the Flag (Method 1)
-	find -readable -size 1033c ! -executable -exec cat {} +
+	find -readable -size 1033c \! -executable -execdir cat {} +
+	find -readable -size 1033c \! -executable -execdir cat {} \;
 	# Capture the Flag (Method n)
+	find -readable -size 1033c ! -executable -exec cat {} +
 	find ./inhere/* -size 1033c ! -perm 111 | xargs -L1 file -h
 	find ./inhere/* -size 1033c ! -perm 111 -readabale -exec {} +
 

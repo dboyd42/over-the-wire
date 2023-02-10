@@ -21,24 +21,31 @@ Walkthrough
 
 .. code-block :: Bash
 
-	# Login to server
-	sshpass -p BfMYroe26WYalil77FoDi9qh59eK5xNr ssh bandit15@$TM
+    # Method 1: Cat password file into OpenSSL
+    cat /etc/bandit_pass/bandit15 | openssl s_client -connect 127.0.0.1:300001 -quiet
 
-	# Find the password file
-	find / -iname "*bandit15*" 2>/dev/null | xargs -L1 file| grep -i ascii
-	FI=/etc/bandit_pass/bandit15
+    # Method 2: Connect then submit password
+    openssl s_client -connect 127.0.0.1:300001 -quiet
+    jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
 
-	# Capture the Flag
-	cat $FI | openssl s_client -connect 127.0.0.1:30001 -quiet
-		> depth=0 CN = localhost
-		> verify error:num=18:self signed certificate
-		> verify return:1
-		> depth=0 CN = localhost
-		> verify return:1
-		> Correct!
-		> cluFn7wTiGryunymYOu4RcffSxQluehd
+	# # Login to server
+	# sshpass -p BfMYroe26WYalil77FoDi9qh59eK5xNr ssh bandit15@$TM
 
-	# Use Tmux to copy data to LHOST
-	# Change perm for ssh
-	chmod 600 docs/bandit16-17.sshkey.private-b17sPassword
+	# # Find the password file
+	# find / -iname "*bandit15*" 2>/dev/null | xargs -L1 file| grep -i ascii
+	# FI=/etc/bandit_pass/bandit15
+
+	# # Capture the Flag
+	# cat $FI | openssl s_client -connect 127.0.0.1:30001 -quiet
+	# 	> depth=0 CN = localhost
+	# 	> verify error:num=18:self signed certificate
+	# 	> verify return:1
+	# 	> depth=0 CN = localhost
+	# 	> verify return:1
+	# 	> Correct!
+	# 	> cluFn7wTiGryunymYOu4RcffSxQluehd
+
+	# # Use Tmux to copy data to LHOST
+	# # Change perm for ssh
+	# chmod 600 docs/bandit16-17.sshkey.private-b17sPassword
 

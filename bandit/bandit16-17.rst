@@ -20,20 +20,24 @@ Walkthrough
 
 .. code-block :: Bash
 
-	# Login to server
-	sshpass -p cluFn7wTiGryunymYOu4RcffSxQluehd ssh bandit16@$TM
+    # 1. Discover open ports between 31000 and 32000 (Version intensity = 2)
+    nmap -T5 -sV --version-light -p 31000-32000 -Pn localhost | grep ssl | cut -d'/' -f1
+    cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet
 
-	# Scan the range of ports to find the SSL listener
-	nmap -p 31000-32000 -sV 127.0.0.1
-		> see Nmap -V Ouput
-	PORT=31790
+	# # Login to server
+	# sshpass -p cluFn7wTiGryunymYOu4RcffSxQluehd ssh bandit16@$TM
 
-	# Find the password file
-	find / -iname *bandit16*" 2>/dev/null | xargs -L1 file | grep -i ascii
-	FI=/etc/bandit_pass/bandit15
+	# # Scan the range of ports to find the SSL listener
+	# nmap -p 31000-32000 -sV 127.0.0.1
+	# 	> see Nmap -V Ouput
+	# PORT=31790
 
-	# Capture the Flag
-	cat $FI | openssl s_client -connect 127.0.0.1:$PORT -quiet
+	# # Find the password file
+	# find / -iname *bandit16*" 2>/dev/null | xargs -L1 file | grep -i ascii
+	# FI=/etc/bandit_pass/bandit15
+
+	# # Capture the Flag
+	# cat $FI | openssl s_client -connect 127.0.0.1:$PORT -quiet
 
 
 Nmap -sV Output

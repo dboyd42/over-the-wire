@@ -24,10 +24,9 @@ Walkthrough
 		passwd: <C-b>]	  # If using tmux
 		passwd: cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 
-	# Capture the Flag (Method 1)
+	# Capture the Flag (Method n)
 	sort -u data.txt | uniq -u
-	# Capture the Flag (Method 2)
 	sort data.txt | uniq -u
-	# Capture the Flag (Method 3)
 	cat data.txt | sort | uniq -u
+    sort data.txt -r | uniq -c | grep '1 '
 

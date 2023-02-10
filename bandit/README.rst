@@ -11,3 +11,8 @@ Process of continuing:
 2. `help <x>`  // built-in shell help page
 3. Search-engines
 
+## Tips 'n Tricks
+
+1. Use `tmux` to copy the password into the buffer
+2. When running through the levels sequentially, use this one-liner:
+   `i=$(( $i + 1 )); echo $i; ssh bandit$i@bandit.labs.overthewire.org -p 2220`

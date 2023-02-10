@@ -23,22 +23,26 @@ Walkthrough
 
 .. code-block :: Bash
 
-	# Login to server
-	sshpass 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL ssh bandit13@bandit.overthewire.org -p 2220
-	# Find flag
-	ls; exit
+   # Login using the SSH file from the current bandit user
+   bandit13@bandit:~$
+        ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
 
-	# Copy the flag from RHOST to LHOST
-	# Method 1
-	scp -P 2220 bandit13@bandit.labs.overthewire.org:./sshkey.private ./
-	# Method 2
-	scp -P 2220 bandit$i@bandit.labs.overthewire.org:/home/bandit1
-	3/\* ./
+	# # Login to server
+	# sshpass 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL ssh bandit13@bandit.overthewire.org -p 2220
+	# # Find flag
+	# ls; exit
 
-	# [ISSUE] ssh's "WARNING: UNPROTECTED PRIVATE KEY FILE!"
-	#   [FIX] reset key to perm defaults
-	sudo chmod 600 sshkey.private
+	# # Copy the flag from RHOST to LHOST
+	# # Method 1
+	# scp -P 2220 bandit13@bandit.labs.overthewire.org:./sshkey.private ./
+	# # Method 2
+	# scp -P 2220 bandit$i@bandit.labs.overthewire.org:/home/bandit1
+	# 3/\* ./
 
-	# Capture the Flag
-	ssh bandit14@localhost -i sshkey.private
+	# # [ISSUE] ssh's "WARNING: UNPROTECTED PRIVATE KEY FILE!"
+	# #   [FIX] reset key to perm defaults
+	# sudo chmod 600 sshkey.private
+
+	# # Capture the Flag
+	# ssh bandit14@localhost -i sshkey.private
 

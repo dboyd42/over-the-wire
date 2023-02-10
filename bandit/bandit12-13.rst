@@ -71,7 +71,7 @@ Walkthrough
 		bunzip t				## newfile t.out
 
 	# If POSIX
-	tar -xvf t				## newfile data5.bin (POSIX file)
+	tar -xvf t				    ## newfile data5.bin (POSIX file)
 	tar -xvf data5.bin			## newfile data6.bin (POSIX file)
 	tar -xvf data6.bin			## newfile data8.bin (gzip file)
 
