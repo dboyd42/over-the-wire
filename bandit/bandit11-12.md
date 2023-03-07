@@ -38,7 +38,7 @@ cat data.txt | tr 'a-zA-Z' 'n-za-mN-ZA-M'
 1. The first option is your original text, covering all your lowercase (a-z)
    and uppercase (A-Z).
 
-2. Then, with the second option, we need to 'tr'anslate (shift) our base
+2. Then, with the second option, we need to `tr`anslate (shift) our base
    letters by 13.
 
 Refering to the **chart below**, this will mean that `a=n` and `z=M`.
