@@ -1,10 +1,10 @@
-bandit4-5
-#########
-:Author: David Boyd
-:Date: 2020-03-20
+# Bandit 4 :arrow_right: 5
 
-Level Goal
-==========
+> **Author:** David Boyd<br>
+> **Date:** 2020-03-20<br>
+> **Revised:** 2023-03-07
+
+# Level Goal
 
 The password for the next level is stored in the only human-readable file in
 the inhere directory. Tip: if your terminal is messed up, try the “reset”
@@ -12,23 +12,16 @@ command.  Commands you may need to solve this level:
 
 ls, cd, cat, file, du, find
 
-Walkthrough
-===========
+# Walkthrough
 :file: determines the filetype and displays the output.
 
-.. code-block :: Bash
+``` bash
+# Login to server
+i=$(( $i + 1 )); echo $i; ssh bandit$i@bandit.labs.overthewire.org -p 2220
+  [<<] passwd: [>>] 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
 
-	# Login to server
-	ssh bandit4@bandit.overthewire.org -p 2220
-		passwd: <C-b>]      # If using tmux
-		passwd: pIwrPrtPN36QITSp3EQaw936yaFoFgAB
-
-	# Capture the Flag
-	file inhere/*
-	cat ./inhere/-file07
-
-	# Tmux copy to system clipboard
-	<C-b>]		# Enter vi mode
-	<Space>		# Start visual copy
-	<Enter>		# Copy text
-
+# Capture the Flag
+file inhere/*
+cat ./inhere/-file07
+  [<<] lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+```

@@ -1,10 +1,10 @@
-bandit0-1
-#########
-:Author: David Boyd
-:Date: 2020-03-20
+# Bandit Level 0 :arrow_right: 1
 
-Level Goal
-==========
+> **Author:** David Boyd<br>
+> **Date:** 2020-03-20<br>
+> **Revised:** 2023-03-07
+
+## Level Goal
 
 The goal of this level is for you to log into the game using SSH. The host to
 which you need to connect is bandit.labs.overthewire.org, on port 2220. The
@@ -15,21 +15,14 @@ Commands you may need to solve this level
 
 ssh
 
-Walkthrough
-===========
-:NOTE: tmux <C-b>] doesn't work with 'su' command
+## Walkthrough
 
-.. code-block :: Bash
+``` bash
+# Login to server
+ssh bandit0@bandit.overthewire.org -p 2220
+  [<<] passwd: [>>] bandit0
 
-	# Login to server
-	ssh bandit0@bandit.overthewire.org -p 2220
-		passwd: bandit0
-
-	# Get bandit1 passwd
-	cat readme
-
-	# Tmux copy to system clipboard
-	<C-b>]		# Enter vi mode
-	<Space>		# Start visual copy
-	<Enter>		# Copy text
-
+# Get bandit1 passwd
+cat readme
+  [<<] NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+```

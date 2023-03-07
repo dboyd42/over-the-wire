@@ -1,10 +1,10 @@
-bandit12-13
-###########
-:Author: David Boyd
-:Date: 2020-03-20
+# Bandit 12 :arrow_right: 13
 
-Level Goal
-==========
+> **Author:** David Boyd<br>
+> **Date:** 2020-03-20<br>
+> **Revised:** 2023-03-07
+
+# Level Goal
 
 The password for the next level is stored in the file data.txt, which is a
 hexdump of a file that has been repeatedly compressed. For this level it may
@@ -17,65 +17,42 @@ Commands you may need to solve this level:
 grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd, mkdir, cp, mv,
 file
 
-Walkthrough
-===========
-:Note: You have file editing privileges in mkdir /tmp/<some-dir>/
-:xxd: make a hexdump or do the reverse
-:tar, gzip, bzip2: used for de/compression files
-:Note: gunzip REQUIRES the filename's suffix (extension) to be '.gz'
-:Update: bypass gunzip suffix requirement: -S <ext>
+# Walkthrough
 
-+-----+---------------------------------------------+
-| tar | Description                                 |
-+=====+=============================================+
-| z   | means (un)z̲ip.                              |
-+-----+---------------------------------------------+
-| x   | means ex̲tract ffiles from the archive.      |
-+-----+---------------------------------------------+
-| v   | means print the filenames v̲erbosely.        |
-+-----+---------------------------------------------+
-| f   | means the following argument is a f̱ilename. |
-+-----+---------------------------------------------+
+``` bash
+# Login to server
+i=$(( $i + 1 )); echo $i; ssh bandit$i@bandit.labs.overthewire.org -p 2220
+  [<<] passwd: [>>] JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
 
-.. code-block :: Bash
+#### Capture the Flag ####
+### 1. Setup workspace
+mkdir /tmp/some-folder/
+cp data.txt /tmp/some-folder/
+cd /tmp/some-folder/
 
-	# Login to server
-	ssh bandit12@bandit.overthewire.org -p 2220
-		passwd: <C-b>]      # If using tmux
-		passwd: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+### 2. Loop following process:
+## 2.1 Determine file type
+file data.txt
+## 2.2 Decompress file based on type (exception on first round: use xxd)
+# Round 1: Reverse hexadecimal
+xxd -r data.txt > unhexed
+# Round 2: gzip
+mv unhexed unhexed.gz           # GZip decompression requires '.gz' extension
+gunzip unhexed.gz
+# Round 3: bzip2
+bunzip2 unhexed                 # Method 2: tar -xvjf data6.bin
+# Round 4: gzip
+mv unhexed.out unhexed.out.gz   # GZip decompression requires '.gz' extension
+gunzip unhexed.out.gz
+# Round 5: POSIX tar archive (GNU)
+tar -xvf data5.bin
+# Round 6: bzip2
+bunzip2 data6.bin               # Method 2: tar -xvjf data6.bin
+# Round 7: gzip
+mv data8.bin data8.bin.gz       # GZip decompression requires '.gz' extension
+gunzip data8.bin.gz
 
-	###
-	# Capture the Flag
-	###
-	# Set up workspace
-	mkdir /tmp/some-folder/
-	cp data.txt /tmp/some-folder/
-	cd /tmp/some-folder/
-
-	# Determine file
-	file data.txt
-	head data.txt
-	xxd -r data.txt temp
-
-	###
-	# Loop until File == POSIX
-	###
-		# Determine file
-		file temp
-
-		# If gunzip file
-		mv temp t.gz
-		gunzip t.gz
-
-		# Else If bzip2
-		bunzip t				## newfile t.out
-
-	# If POSIX
-	tar -xvf t				    ## newfile data5.bin (POSIX file)
-	tar -xvf data5.bin			## newfile data6.bin (POSIX file)
-	tar -xvf data6.bin			## newfile data8.bin (gzip file)
-
-	# Final
-	mv data8.bin t.gz
-	gunzip t.gz
-
+## 3. Get flag
+cat data8.bin
+  [<<] wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+```

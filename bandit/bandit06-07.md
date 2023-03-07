@@ -1,10 +1,10 @@
-bandit6-7
-#########
-:Author: David Boyd
-:Date: 2020-03-20
+# Bandit 6 :arrow_right: 7
 
-Level Goal
-==========
+> **Author:** David Boyd<br>
+> **Date:** 2020-03-20<br>
+> **Revised:** 2023-03-07
+
+# Level Goal
 
 The password for the next level is stored somewhere on the server and has all
 of the following properties:
@@ -17,25 +17,15 @@ Commands you may need to solve this level
 
 ls, cd, cat, file, du, find, grep
 
-Walkthrough
-===========
+# Walkthrough
 :find: can also search for users, groups, and sizes
 
-.. code-block :: Bash
+``` bash
+# Login to server
+i=$(( $i + 1 )); echo $i; ssh bandit$i@bandit.labs.overthewire.org -p 2220
+  [<<] passwd: [>>] P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
 
-	# Login to server
-	ssh bandit6@bandit.overthewire.org -p 2220
-		passwd: <C-b>]			# If using tmux
-		passwd: DXjZPULLxYr17uwoI01bNLQbtFemEgo7
-
-	# Capture the Flag
-    find / -type f -user bandit7 -group bandit6 -size 33c -execdir cat {} + 2>/dev/null
-    # Alternative code
-	find /* -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} +
-	# location: /var/lib/dpkg/info/bandit7.password
-
-	# Tmux copy to system clipboard
-	<C-b>]		# Enter vi mode
-	<Space>		# Start visual copy
-	<Enter>		# Copy text
-
+# Capture the Flag
+find /* -user bandit7 -group bandit6 -size 33c 2>/dev/null -exec cat {} +
+  [<<] z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+```
