@@ -18,7 +18,8 @@ Commands you may need to solve this level
 ls, cd, cat, file, du, find, grep
 
 # Walkthrough
-:find: can also search for users, groups, and sizes
+
+`find` can also search for users, groups, and sizes
 
 ``` bash
 # Login to server
